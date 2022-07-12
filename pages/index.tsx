@@ -5,10 +5,10 @@ import Sidebar from "../components/Sidebar"
 const Home: NextPage = () => {
   return (
     <div className="h-full grid grid-cols-12 w-full">
-      <div className="bg-red-500 col-span-2">
+      <div className="col-span-2 hidden md:block">
         <Sidebar />
       </div>
-      <div className="col-span-10">
+      <div className="col-span-12 md:col-span-10">
         <Canvas />
       </div>
     </div>

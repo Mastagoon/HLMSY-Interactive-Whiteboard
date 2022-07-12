@@ -13,7 +13,7 @@ const EraserButton: React.FC = () => {
         width="45"
         height="45"
         stroke="white"
-        stroke-opacity="0.57"
+        strokeOpacity="0.57"
       />
       <path
         d="M16.3932 33.9968L17.4709 35.0745C18.0202 35.6238 18.9102 35.6238 19.4597 35.0745L24.0785 30.4557L22.0066 28.3837L16.3932 33.9968Z"
