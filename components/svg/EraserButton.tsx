@@ -1,6 +1,13 @@
+import { useCanvasContext } from "../../context/canvasContext"
+
 const EraserButton: React.FC = () => {
+  const { toggleEraser } = useCanvasContext()
+
+  const handleClick = () => console.log("CLICKED")
+
   return (
     <svg
+      onClick={handleClick}
       width="46"
       height="46"
       viewBox="0 0 46 46"

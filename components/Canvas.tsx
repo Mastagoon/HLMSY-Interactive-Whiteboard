@@ -26,9 +26,11 @@ const Canvas: React.FC = () => {
   useEffect(() => {
     const ctx = ctxRef.current
     if (!ctx) return
-    ctx.strokeStyle = color
+    console.log("is?")
+    console.log(isEraser)
+    ctx.strokeStyle = isEraser ? bgColor : color
     ctxRef.current = ctx
-  }, [color])
+  }, [color, isEraser])
 
   const startDrawing = (e: BaseSyntheticEvent) => {
     const nativeEvent: any = e.nativeEvent
