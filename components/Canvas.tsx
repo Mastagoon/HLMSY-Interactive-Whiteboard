@@ -26,8 +26,6 @@ const Canvas: React.FC = () => {
   useEffect(() => {
     const ctx = ctxRef.current
     if (!ctx) return
-    console.log("is?")
-    console.log(isEraser)
     ctx.strokeStyle = isEraser ? bgColor : color
     ctxRef.current = ctx
   }, [color, isEraser])
