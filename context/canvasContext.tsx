@@ -8,6 +8,10 @@ export interface CanvasContextType {
   changeColor: (color: string) => void
   bgColor: string
   changeBgColor: (color: string) => void
+  brushSize: number
+  changeBrushSize: (size: number) => void
+  clearCanvas: boolean
+  changeClearCanvas: (b: boolean) => void
 }
 
 const CanvasContext = React.createContext<CanvasContextType | null>(null)
@@ -29,12 +33,18 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const [bgColor, setBgColor] = useState<string>("#000")
   // #TODO color type?
   const [color, setColor] = useState<string>("#fff")
+  const [brushSize, setBrushSize] = useState<number>(3)
+  const [clearCanvas, setClearCanvas] = useState<boolean>(false)
 
   const changeColor = (c: string) => setColor(c)
 
   const toggleEraser = () => setIsEraser(!isEraser)
 
+  const changeClearCanvas = (b: boolean) => setClearCanvas(b)
+
   const changeBgColor = (c: string) => setBgColor(c)
+
+  const changeBrushSize = (size: number) => setBrushSize(size)
 
   return (
     <CanvasContext.Provider
@@ -45,6 +55,10 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
         changeColor,
         bgColor,
         changeBgColor,
+        brushSize,
+        changeBrushSize,
+        changeClearCanvas,
+        clearCanvas,
       }}
     >
       {children}
