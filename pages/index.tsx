@@ -1,7 +1,12 @@
 import type { NextPage } from "next"
+import dynamic from "next/dynamic"
 import Canvas from "../components/Canvas"
 import Sidebar from "../components/Sidebar"
 import { CanvasProvider } from "../context/canvasContext"
+
+const CanvasNoSSR = dynamic(() => import("../components/Canvas"), {
+  ssr: false,
+})
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +16,7 @@ const Home: NextPage = () => {
           <Sidebar />
         </div>
         <div className="col-span-12 md:col-span-10">
-          <Canvas />
+          <CanvasNoSSR />
         </div>
       </div>
     </CanvasProvider>
