@@ -2,6 +2,8 @@ import React, { useContext } from "react"
 import { useState } from "react"
 
 export interface CanvasContextType {
+  roomId: string
+  changeRoomId: (id: string) => void
   isEraser: boolean
   color: string
   toggleEraser: () => void
@@ -35,6 +37,7 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const [color, setColor] = useState<string>("#fff")
   const [brushSize, setBrushSize] = useState<number>(3)
   const [clearCanvas, setClearCanvas] = useState<boolean>(false)
+  const [roomId, setRoomId] = useState<string>("")
 
   const changeColor = (c: string) => setColor(c)
 
@@ -43,6 +46,8 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const changeClearCanvas = (b: boolean) => setClearCanvas(b)
 
   const changeBgColor = (c: string) => setBgColor(c)
+
+  const changeRoomId = (id: string) => setRoomId(id)
 
   const changeBrushSize = (size: number) => setBrushSize(size)
 
@@ -59,6 +64,8 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
         changeBrushSize,
         changeClearCanvas,
         clearCanvas,
+        roomId,
+        changeRoomId,
       }}
     >
       {children}
