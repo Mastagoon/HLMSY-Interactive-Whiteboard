@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { useState } from "react"
 
 export interface CanvasContextType {
@@ -14,6 +14,10 @@ export interface CanvasContextType {
   changeBrushSize: (size: number) => void
   clearCanvas: boolean
   changeClearCanvas: (b: boolean) => void
+  nickName: string
+  changeNickName: (nickName: string) => void
+  participants: string[]
+  changeParticipants: (participants: string[]) => void
 }
 
 const CanvasContext = React.createContext<CanvasContextType | null>(null)
@@ -38,6 +42,13 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const [brushSize, setBrushSize] = useState<number>(3)
   const [clearCanvas, setClearCanvas] = useState<boolean>(false)
   const [roomId, setRoomId] = useState<string>("")
+  const [nickName, setNickname] = useState<string>("")
+  const [participants, setParticipants] = useState<string[]>([])
+
+  useEffect(() => {
+    if (typeof window !== "undefined")
+      setNickname(localStorage.getItem("nickname") || "")
+  }, [])
 
   const changeColor = (c: string) => setColor(c)
 
@@ -50,6 +61,11 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const changeRoomId = (id: string) => setRoomId(id)
 
   const changeBrushSize = (size: number) => setBrushSize(size)
+
+  const changeNickName = (nickName: string) => setNickname(nickName)
+
+  const changeParticipants = (participants: string[]) =>
+    setParticipants(participants)
 
   return (
     <CanvasContext.Provider
@@ -66,6 +82,10 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
         clearCanvas,
         roomId,
         changeRoomId,
+        nickName,
+        changeNickName,
+        participants,
+        changeParticipants,
       }}
     >
       {children}

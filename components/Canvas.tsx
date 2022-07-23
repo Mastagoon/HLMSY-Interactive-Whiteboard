@@ -1,7 +1,6 @@
 import { BaseSyntheticEvent, useEffect, useRef, useState } from "react"
 import { CanvasContextType, useCanvasContext } from "../context/canvasContext"
 import { io, Socket } from "socket.io-client"
-import { emit } from "process"
 
 let socket: Socket
 

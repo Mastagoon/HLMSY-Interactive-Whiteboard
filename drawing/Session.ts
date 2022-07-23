@@ -1,11 +1,27 @@
+import { io, Socket } from "socket.io-client"
+
+export class WebSocket {
+  private socket: Socket
+
+  constructor(url: string) {
+    this.socket = io(url)
+  }
+
+  public on(event: string, callback: (data: any) => void) {
+    this.socket.on(event, callback)
+  }
+}
+
 export class Canvas {
   // canvas object, what should it have?
   private canvas: HTMLCanvasElement
   private ctx: CanvasRenderingContext2D
+  private socket: WebSocket
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.ctx = canvas.getContext("2d")!
+    this.socket = new WebSocket("http://localhost:3000")
   }
 
   public async draw() {

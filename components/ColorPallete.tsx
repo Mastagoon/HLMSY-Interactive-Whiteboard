@@ -5,10 +5,7 @@ const ColorPallete: React.FC = () => {
   const { changeColor, color } = useCanvasContext()
 
   const handleChange = (c: string) => {
-    console.log(color)
-    console.log(c)
     changeColor(c)
-    console.log(color)
   }
 
   return (
