@@ -8,6 +8,7 @@
 - [ ] Hirearchy & permissions
 - [ ] Undo functioanlity
 - [ ] More colors
+- [ ] Landing page animation
 
 # Known bugs 
 - [ ] Screen resizing causes the offset to change
