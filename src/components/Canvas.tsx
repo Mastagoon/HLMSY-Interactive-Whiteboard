@@ -31,7 +31,7 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
   const socketInitializer = async () => {
     if (connected) return
     // await fetch("/api/socketio")
-    socket = io("http://localhost:8000")
+    socket = io("http://localhost:3578")
 
     socket.on("connect", () => {
       console.log("connected")
