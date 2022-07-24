@@ -9,7 +9,7 @@
 - [ ] Undo functioanlity
 - [ ] More colors
 
-# known bugs 
+# Known bugs 
 - [ ] Screen resizing causes the offset to change
 - [ ] Starting to draw happens for all participents simultanously
 - [ ] Eraser toggle not working
