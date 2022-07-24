@@ -7,7 +7,6 @@ dotenv.config({ path: path.join(__dirname, "..", ".env") })
 
 const main = async () => {
   const app = express()
-  // app.use(cors())
   const httpServer = createServer(app)
   const io = new Server(httpServer, { cors: { origin: "*" } })
   httpServer.listen(process.env.PORT || 8080, () =>
