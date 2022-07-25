@@ -12,6 +12,6 @@
 
 # Known bugs 
 - [ ] Screen resizing causes the offset to change
-- [ ] Starting to draw happens for all participents simultanously
+- [X] Starting to draw happens for all participents simultanously
 - [ ] Eraser toggle not working
 - [ ] Color changes for all participents at once
