@@ -163,7 +163,6 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
     currX = x
     currY = y
     ctxRef.current.beginPath()
-    setIsDrawing(true)
   }
 
   const drawing = (x: number, y: number) => {
@@ -179,7 +178,6 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
 
   const stopDrawing = () => {
     if (!ctxRef.current) return
-    setIsDrawing(false)
     ctxRef.current.closePath()
   }
 
