@@ -1,11 +1,11 @@
 import { useCanvasContext } from "../../context/canvasContext"
 
 const EraserButton: React.FC = () => {
-  const { toggleEraser } = useCanvasContext()
+  const { setEraser } = useCanvasContext()
 
   return (
     <svg
-      onClick={toggleEraser}
+      onClick={() => setEraser(true)}
       width="46"
       height="46"
       viewBox="0 0 46 46"

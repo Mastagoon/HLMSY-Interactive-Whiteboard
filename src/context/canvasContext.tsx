@@ -6,7 +6,7 @@ export interface CanvasContextType {
   changeRoomId: (id: string) => void
   isEraser: boolean
   color: string
-  toggleEraser: () => void
+  setEraser: (b: boolean) => void
   changeColor: (color: string) => void
   bgColor: string
   changeBgColor: (color: string) => void
@@ -52,7 +52,7 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
 
   const changeColor = (c: string) => setColor(c)
 
-  const toggleEraser = () => setIsEraser(!isEraser)
+  const setEraser = (b: boolean) => setIsEraser(b)
 
   const changeClearCanvas = (b: boolean) => setClearCanvas(b)
 
@@ -72,7 +72,7 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
       value={{
         isEraser,
         color,
-        toggleEraser,
+        setEraser,
         changeColor,
         bgColor,
         changeBgColor,

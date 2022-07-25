@@ -1,6 +1,11 @@
+import { useCanvasContext } from "../../context/canvasContext"
+
 const BrushButton: React.FC = () => {
+  const { setEraser } = useCanvasContext()
+
   return (
     <svg
+      onClick={() => setEraser(false)}
       width="46"
       height="46"
       viewBox="0 0 46 46"
