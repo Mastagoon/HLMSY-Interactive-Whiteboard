@@ -1,4 +1,4 @@
-import { faCoffee, faKeyboard } from "@fortawesome/free-solid-svg-icons"
+import { faKeyboard } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { NextPage } from "next"
 import { useRouter } from "next/router"
