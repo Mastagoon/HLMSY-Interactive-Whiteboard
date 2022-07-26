@@ -20,6 +20,8 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
     changeBrushSize,
     changeClearCanvas,
     clearCanvas,
+    changeParticipants,
+    nickName,
     // roomId,
   } = useCanvasContext() as CanvasContextType
 
@@ -31,12 +33,17 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
   const socketInitializer = async () => {
     if (connected) return
     // await fetch("/api/socketio")
-    socket = io(process.env.NEXT_PUBLIC_SERVER_HOST ?? "http://localhost:8080")
+    socket = io(process.env.NEXT_PUBLIC_SERVER_HOST ?? "http://localhost:8000")
 
     socket.on("connect", () => {
       console.log("connected")
-      socket.emit("join", roomId)
+      socket.emit("join", { roomId, nick: nickName })
       setConnected(true)
+    })
+
+    socket.on("participants_update", (participants) => {
+      console.log("participants_update", participants)
+      changeParticipants(participants)
     })
 
     socket.on("disconnect", () => setConnected(false))

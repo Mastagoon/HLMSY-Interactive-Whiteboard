@@ -4,12 +4,12 @@ import { useCanvasContext } from "../context/canvasContext"
 const Participants: React.FC = () => {
   const { participants, changeParticipants, nickName } = useCanvasContext()
 
-  useEffect(() => {
-    if (!participants.includes(nickName)) {
-      console.log("HERE")
-      changeParticipants([...participants, nickName])
-    }
-  }, [nickName, participants])
+  // useEffect(() => {
+  // if (!participants.includes(nickName)) {
+  // console.log("HERE")
+  // changeParticipants([...participants, nickName])
+  // }
+  // }, [nickName, participants])
 
   console.log(participants)
 
