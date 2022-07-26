@@ -16,7 +16,10 @@ const Home: NextPage = () => {
   const handleJoin = async () => {
     if (!roomId) return
     await saveNickName()
-    router.push("/[id]", `/${roomId}`)
+    router.push(
+      "/[id]",
+      `/${roomId.includes("/") ? roomId.split("/").pop() : roomId}`
+    )
   }
 
   const saveNickName = async () => {
@@ -38,7 +41,7 @@ const Home: NextPage = () => {
     // generate a random string
     const id =
       Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15)
+      Math.random().toString(36).substring(2, 15).replaceAll("/", "-")
     await saveNickName()
     router.push("/[id]", `/${id}`)
   }
