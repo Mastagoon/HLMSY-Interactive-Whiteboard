@@ -1,7 +1,7 @@
 # TODOS
 
 -	[X] Parse links when joining
-- [X] HTTPS
+- [ ] HTTPS
 - [ ] Correctly display participents
 - [ ] Save image functioanlity
 - [ ] Share initial canvas when joining
