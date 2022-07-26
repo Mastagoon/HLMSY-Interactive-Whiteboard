@@ -10,7 +10,7 @@ It has a simple interface and easy to use.
 # TODOS
 
 -	[X] Parse links when joining
-- [ ] HTTPS
+- [X] HTTPS
 - [X] Correctly display participents
 - [ ] Save image functioanlity
 - [ ] Share initial canvas when joining
@@ -20,7 +20,7 @@ It has a simple interface and easy to use.
 - [ ] Landing page animation
 
 # Known bugs 
-- Screen resizing causes the offset to change
-~~- Starting to draw happens for all participents simultanously~~
-~~- [X] Eraser toggle not working~~
+- Screen resizing causes the offset to change.
+- ~~ Starting to draw happens for all participents simultanously~~
+- ~~ Eraser toggle not working~~
 - Color changes for all participents at once
