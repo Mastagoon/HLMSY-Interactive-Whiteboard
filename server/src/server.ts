@@ -9,11 +9,11 @@ import fs from "fs"
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 
 const privateKey = fs.readFileSync(
-  path.join(__dirname, "..", "sslcert/server.key"),
+  path.join(__dirname, "..", "sslcert/key.pem"),
   "utf8"
 )
 const cert = fs.readFileSync(
-  path.join(__dirname, "..", "sslcert/server.crt"),
+  path.join(__dirname, "..", "sslcert/cert.pem"),
   "utf8"
 )
 
