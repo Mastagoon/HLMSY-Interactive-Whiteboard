@@ -1,10 +1,23 @@
 import { Server, Socket } from "socket.io"
 import { createServer } from "http"
+import https from "https"
 import express from "express"
 import dotenv from "dotenv"
 import path from "path"
 import { DefaultEventsMap } from "socket.io/dist/typed-events"
+import fs from "fs"
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
+
+const privateKey = fs.readFileSync(
+  path.join(__dirname, "..", "sslcert/server.key"),
+  "utf8"
+)
+const cert = fs.readFileSync(
+  path.join(__dirname, "..", "sslcert/server.crt"),
+  "utf8"
+)
+
+const httpsCreds = { key: privateKey, cert }
 
 interface User {
   id: string
@@ -21,10 +34,21 @@ const rooms: Room[] = []
 const main = async () => {
   const app = express()
   const httpServer = createServer(app)
-  const io = new Server(httpServer, { cors: { origin: "*" } })
-  httpServer.listen(process.env.PORT || 8080, () =>
-    console.log("Server started on " + process.env.PORT)
-  )
+  const httpsServer = https.createServer(httpsCreds, app)
+  let io: Server
+  if (process.env.ENV === "production") {
+    // #TODO change cors
+    io = new Server(httpsServer, { cors: { origin: "*" } })
+    httpsServer.listen(443, () =>
+      console.log(`HTTPS server startedd on port 443`)
+    )
+  } else {
+    io = new Server(httpServer, { cors: { origin: "*" } })
+    httpServer.listen(process.env.PORT || 8080, () =>
+      console.log("Server started on " + process.env.PORT)
+    )
+  }
+
   io.on("connection", (client: Socket<DefaultEventsMap>) => {
     console.log("New connection " + client.id)
 
