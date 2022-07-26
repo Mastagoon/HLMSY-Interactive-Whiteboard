@@ -21,6 +21,7 @@ It has a simple interface and easy to use.
 - [ ] Hirearchy & permissions
 - [ ] Undo functioanlity
 - [ ] More colors
+- [ ] Shape tools
 - [ ] Landing page animation
 - [ ] Chat
 
