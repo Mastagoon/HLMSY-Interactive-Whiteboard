@@ -17,7 +17,7 @@ const cert = fs.readFileSync(
   "utf8"
 )
 
-const httpsCreds = { key: privateKey, cert }
+const httpsCreds = { key: privateKey, cert, passphrase: process.env.SSL_PASS }
 
 interface User {
   id: string
