@@ -2,7 +2,7 @@
 
 -	[X] Parse links when joining
 - [ ] HTTPS
-- [ ] Correctly display participents
+- [X] Correctly display participents
 - [ ] Save image functioanlity
 - [ ] Share initial canvas when joining
 - [ ] Hirearchy & permissions
