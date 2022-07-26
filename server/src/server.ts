@@ -35,18 +35,18 @@ const main = async () => {
   const app = express()
   const httpServer = createServer(app)
   const httpsServer = https.createServer(httpsCreds, app)
-  let io: Server
+  let io: Server, port: number
   if (process.env.ENV === "production") {
     // #TODO change cors
+    port = Number(process.env.PORT) ?? 443
     io = new Server(httpsServer, { cors: { origin: "*" } })
-    httpsServer.listen(443, () =>
-      console.log(`HTTPS server startedd on port 443`)
+    httpsServer.listen(port, () =>
+      console.log(`HTTPS server startedd on ${port}`)
     )
   } else {
+    port = Number(process.env.PORT) ?? 8000
     io = new Server(httpServer, { cors: { origin: "*" } })
-    httpServer.listen(process.env.PORT || 8080, () =>
-      console.log("Server started on " + process.env.PORT)
-    )
+    httpServer.listen(port, () => console.log(`Server started on ${port}`))
   }
 
   io.on("connection", (client: Socket<DefaultEventsMap>) => {
