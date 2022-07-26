@@ -4,8 +4,8 @@ HLMSY is an interactive whiteboard application built with next.js & Socket.io.
 It has a simple interface and easy to use.
 
 # Screenshots
-![screenshot 1](https://ibb.co/5MLsZL6)
-![screenshot 2](https://ibb.co/QQm4TrR)
+![screenshot 1](https://i.ibb.co/YQjx1pM/sc1.png)
+![screenshot 2](https://i.ibb.co/SsBVSBP/sc2.png)
 
 # Demo
 
