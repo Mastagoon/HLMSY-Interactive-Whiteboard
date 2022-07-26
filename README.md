@@ -22,6 +22,7 @@ It has a simple interface and easy to use.
 - [ ] Undo functioanlity
 - [ ] More colors
 - [ ] Landing page animation
+- [ ] Chat
 
 # Known bugs 
 - Screen resizing causes the offset to change.
