@@ -21,7 +21,9 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
     changeClearCanvas,
     clearCanvas,
     changeParticipants,
+    saveImage,
     nickName,
+    setSaveImage,
     // roomId,
   } = useCanvasContext() as CanvasContextType
 
@@ -79,6 +81,19 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
   useEffect(() => {
     if (!connected) socketInitializer()
   }, [connected])
+
+  useEffect(() => {
+    if (saveImage > 0) {
+      setSaveImage(saveImage - 1)
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const dataURL = canvas.toDataURL("image/png")
+      const link = document.createElement("a")
+      link.href = dataURL
+      link.download = "canvas.png"
+      link.click()
+    }
+  }, [saveImage])
 
   useEffect(() => {
     if (clearCanvas && ctxRef.current && canvasRef.current) {

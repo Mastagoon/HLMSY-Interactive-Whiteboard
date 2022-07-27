@@ -18,6 +18,8 @@ export interface CanvasContextType {
   changeNickName: (nickName: string) => void
   participants: string[]
   changeParticipants: (participants: string[]) => void
+  saveImage: number
+  setSaveImage: (id: number) => void
 }
 
 const CanvasContext = React.createContext<CanvasContextType | null>(null)
@@ -44,6 +46,7 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const [roomId, setRoomId] = useState<string>("")
   const [nickName, setNickname] = useState<string>("")
   const [participants, setParticipants] = useState<string[]>([])
+  const [saveImage, setSaveImage] = useState<number>(0)
 
   useEffect(() => {
     if (typeof window !== "undefined")
@@ -86,6 +89,8 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
         changeNickName,
         participants,
         changeParticipants,
+        saveImage,
+        setSaveImage,
       }}
     >
       {children}
