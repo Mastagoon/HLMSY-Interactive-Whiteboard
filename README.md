@@ -16,7 +16,7 @@ It has a simple interface and easy to use.
 -	[X] Parse links when joining
 - [X] HTTPS
 - [X] Correctly display participents
-- [ ] Save image functioanlity
+- [X] Save image functioanlity
 - [ ] Share initial canvas when joining
 - [ ] Hirearchy & permissions
 - [ ] Undo functioanlity
@@ -29,4 +29,3 @@ It has a simple interface and easy to use.
 - Screen resizing causes the offset to change.
 - ~~Starting to draw happens for all participents simultanously~~
 - ~~Eraser toggle not working~~
-- Color changes for all participents at once
