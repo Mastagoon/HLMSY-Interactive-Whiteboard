@@ -17,6 +17,7 @@ It has a simple interface and easy to use.
 - [X] HTTPS
 - [X] Correctly display participents
 - [X] Save image functioanlity
+- [ ] Implement a conflict resolution algorithm
 - [ ] Share initial canvas when joining
 - [ ] Hirearchy & permissions
 - [ ] Undo functioanlity
