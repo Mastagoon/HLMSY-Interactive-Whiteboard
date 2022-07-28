@@ -54,15 +54,15 @@ const main = async () => {
 
     // join room request
     client.on("join", (data: { roomId: string; nick: string }) => {
+      // find the room sent by client
       let room = rooms.find((r) => r.roomId === data.roomId)
-      console.log("ROOM " + room)
-      console.log(room?.participants)
       if (room?.participants.filter((p) => p.id === client.id).length) return // already in the room
-      console.log(room)
+      // new connection
       if (!room) {
         room = { roomId: data.roomId, participants: [] }
         rooms.push(room)
       }
+      // set nickname or random guest name
       if (!data.nick?.length)
         data.nick = "Guest " + Math.floor(Math.random() * 1000)
 
@@ -72,7 +72,6 @@ const main = async () => {
       })
       client.join(data.roomId)
       // get all users in room
-      console.log(room.participants)
       io.to(data.roomId).emit(
         "participants_update",
         room.participants.map((p) => p.nick)

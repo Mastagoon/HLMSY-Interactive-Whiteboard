@@ -44,7 +44,6 @@ const Canvas: React.FC<CanvasProps> = ({ roomId }) => {
     })
 
     socket.on("participants_update", (participants) => {
-      console.log("participants_update", participants)
       changeParticipants(participants)
     })
 
